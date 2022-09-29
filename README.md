@@ -1,6 +1,6 @@
 # KnifeStrife
 ```lua
-loadstring(game:HttpGet(""))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IWillyLovePython/KnifeStrife/main/main.lua"))()
 ```
 made by: vroom12345678910  
   
