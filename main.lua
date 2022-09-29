@@ -103,7 +103,7 @@ TrollTabSection:NewTextBox("Kill", "", function(player)
         end
     end
 end)
-TrollTabSection:NewButton("Anti-Admin", "", function()
+TrollTabSection:NewButton("Anti-Admin (RECOMMENDED)", "", function()
     local poopooheads = {81334428, 1719370220, 1996279003, 265927338, 406518318, 1181002466, 3189375549, 312022172, 1657843102, 364689597, 3826346538, 3022217106, 2265072978}
     for i, player in pairs(game.Players:GetChildren()) do
         if table.find(poopooheads, player.UserId) then
@@ -118,7 +118,7 @@ TrollTabSection:NewButton("Anti-Admin", "", function()
     end)
 end)
 
-KnifeTabSection:NewToggle("No Knife Swing Cool-Down (ONLY W/ ONE)", "", function(boolean)
+KnifeTabSection:NewToggle("No Knife Swing CoolDown (ONLY W/ ONE)", "", function(boolean)
     getgenv().noswingcooldown = boolean
     
     local knifeScript = getsenv(getLocalPlrKnife().Knife)
@@ -129,7 +129,7 @@ KnifeTabSection:NewToggle("No Knife Swing Cool-Down (ONLY W/ ONE)", "", function
     end
 end)
 
-KnifeTabSection:NewToggle("No Ability Cool-Down (PRESS E TO WORK)", "i like to use this with sniper knife", function(boolean) --basically it just switches to a duped knife that has it's ability ready to use.
+KnifeTabSection:NewToggle("Bypass Ability CoolDown (PRESS E TO WORK)", "i like to use this with sniper knife", function(boolean) --basically it just switches to a duped knife that has it's ability ready to use.
     getgenv().noabilitycooldown = boolean
     local keybindConnection
     if getgenv().noabilitycooldown then
