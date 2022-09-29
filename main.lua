@@ -129,7 +129,7 @@ TrollTabSection:NewTextBox("Kill", "", function(player)
     end
 end)
 TrollTabSection:NewButton("Anti-Admin (RECOMMENDED)", "", function()
-    local poopooheads = {81334428, 1719370220, 1996279003, 265927338, 406518318, 1181002466, 3189375549, 312022172, 1657843102, 364689597, 3826346538, 3022217106, 2265072978}
+    local poopooheads = {1145334298, 203703651, 102068705, 101281870, 81334428, 1719370220, 1996279003, 265927338, 406518318, 1181002466, 3189375549, 312022172, 1657843102, 364689597, 3826346538, 3022217106, 2265072978}
     for i, player in pairs(game.Players:GetChildren()) do
         if table.find(poopooheads, player.UserId) then
             game.Players.LocalPlayer:Kick("Anti-Admin.\nUser Id:" ..tostring(player.UserId) .."\nUsername: " ..tostring(player.Name) .."\nDisplay Name: " ..tostring(player.DisplayName))
@@ -167,7 +167,7 @@ KnifeTabSection:NewToggle("Bypass Ability CoolDown (PRESS E TO WORK)", "i like t
     keybindConnection = game:GetService("UserInputService").InputBegan:Connect(function(InputObject, GameProcessedEvent)
         
         if getgenv().noabilitycooldown and not GameProcessedEvent and InputObject.KeyCode == Enum.KeyCode.E then
-            wait(0.5)
+            wait(0.7)
             game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
             game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:GetChildren()[math.random(1, #game.Players.LocalPlayer.Backpack:GetChildren())])
         elseif not getgenv().noabilitycooldown then
