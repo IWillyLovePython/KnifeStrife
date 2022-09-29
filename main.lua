@@ -14,7 +14,7 @@ end
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
 
-local Window = Library.CreateLib("Knife Strife | Hack | Dreamer#5114", "Ocean")
+local Window = Library.CreateLib("Knife Strife | Hack | Dreamer#5114", "Midnight")
 
 local PlayerTab = Window:NewTab("Player")
 local TrollTab = Window:NewTab("Troll")
