@@ -86,6 +86,31 @@ TrollTabSection:NewToggle("Loop-Kill All/Autofarm Slash", "", function(boolean)
     end
 end)
 
+TrollTabSection:NewTextBox("Loop-Kill (Reset to stop)", "", function(player)
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+	    Title = "Loop Kill",
+	    Text = "RESET TO STOP!",
+	    Duration = 10
+    })
+    while true and wait() do
+        if not getLocalPlrKnife() then
+            game:GetService("Workspace")[game.Players.LocalPlayer.Name].clientMain.Remote:FireServer("Teleport")
+        end
+        wait()
+        for _, v in pairs(game.Players:GetChildren()) do
+            if string.find(string.lower(v.Name), string.lower(player)) or string.find(string.lower(v.DisplayName), string.lower(player)) then
+                local cframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                while game.Players[tostring(v.Name)].Character.Humanoid.Health ~= 0 do
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                    getLocalPlrKnife().Knife.Remote:FireServer("Hit", game.Workspace[tostring(v)].Humanoid);
+                    wait()
+                end
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cframe
+            end
+        end
+    end
+end)
+
 TrollTabSection:NewTextBox("Kill", "", function(player)
     if not getLocalPlrKnife() then
         game:GetService("Workspace")[game.Players.LocalPlayer.Name].clientMain.Remote:FireServer("Teleport")
@@ -150,7 +175,6 @@ KnifeTabSection:NewToggle("Bypass Ability CoolDown (PRESS E TO WORK)", "i like t
         end
     end)
 end)
-
 KnifeTabSection:NewTextBox("Dupe Knives, Amount:", "", function(amount)
     for i=1, amount do
         game:GetService("Workspace")[game.Players.LocalPlayer.Name].clientMain.Remote:FireServer("Teleport")
